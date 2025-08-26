@@ -2,3 +2,12 @@
 .env.*
 node_modules/
 .DS_Store
+
+# Common ignores
+node_modules/
+.DS_Store
+dist/
+.env
+.env.*
+*.log
+npm-debug.log*
