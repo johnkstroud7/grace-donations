@@ -1,4 +1,7 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+console.log("Stripe Secret Key from .env:", process.env.STRIPE_SECRET_KEY);
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -28,5 +31,7 @@ app.post("/create-payment-intent", async (req, res) => {
     });
   }
 });
-
+app.get("/", (req, res) => {
+  res.send("Backend is working!");
+});
 app.listen(3000, () => console.log("Server running on port 3000"));
